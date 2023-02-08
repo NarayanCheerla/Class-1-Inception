@@ -7,36 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="root">
-      <!-- <h1>Welcome to React js</h1> -->
-    </div>
-    <!-- <script>
-        const root = document.getElementById("root");
-        const heading = document.createElement("h1");
-        heading.innerHTML = "Welcomt ot ReactJS from Javascirpt !";
-        root.appendChild(heading);
-    </script> -->
-    <script
-      crossorigin
-      src="https://unpkg.com/react@18/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-    ></script>
-    <script>
-      const heading = React.createElement(
-        "h1",
-        {
-          title: "heading",
-          id: "main-heading",
-          style: { color: "orange", fontSize: "40px" },
-        },
-        "Welcome to React Js from React !"
-      );
-
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(heading);
-    </script>
+    <div id="root"></div>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
