@@ -1,7 +1,6 @@
 {
   "name": "class-1-inception",
   "version": "1.0.0",
-  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NarayanCheerla/Class-1-Inception.git"
