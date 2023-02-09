@@ -1,9 +1,33 @@
 {
+  "name": "class-1-inception",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NarayanCheerla/Class-1-Inception.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NarayanCheerla/Class-1-Inception/issues"
+  },
+  "homepage": "https://github.com/NarayanCheerla/Class-1-Inception#readme",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.8.3",
     "process": "^0.11.10"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
 }
