@@ -1,3 +1,7 @@
+body {
+  font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
+}
+
 .header {
   border: 1px solid black;
   display: flex;
@@ -17,16 +21,20 @@
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .card {
-  width: 250px;
+  width: 270px;
   padding: 10px;
   margin: 10px;
-  border: 1px solid black;
+  border: 1px solid #e8e3e3;
 }
 
 .card > img {
   width: 100%;
+}
+
+.search-container {
+  margin: 10px;
 }
