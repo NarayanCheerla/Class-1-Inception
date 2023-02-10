@@ -12,11 +12,11 @@ import Restaurantmenu from "./Components/RestaurantMenu";
 
 const AppLayout = () => {
   return (
-    <>
+    <div>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 
