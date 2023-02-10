@@ -9,13 +9,13 @@ const RestaurantCard = ({
 }) => {
   console.log("Restaurant Card rendered.");
   return (
-    <div className="card">
+    <>
       <img src={IMG_URL + cloudinaryImageId} />
-      <h1>{name}</h1>
-      <h3>{cuisines.join(", ")}</h3>
-      <p>{address}</p>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h6>{address}</h6>
       <h5>{costForTwoString}</h5>
-    </div>
+    </>
   );
 };
 

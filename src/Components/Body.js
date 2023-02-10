@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { SkeletonTheme } from "react-loading-skeleton";
 import CardSkeleton from "./CardSkeleton";
+import { useNavigate } from "react-router-dom";
 
 const Body = () => {
   console.log("Body Rendered..");
@@ -12,6 +13,8 @@ const Body = () => {
   const handleFilter = (e) => {
     setSearchText(e.target.value);
   };
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getRestaurants();
@@ -25,6 +28,10 @@ const Body = () => {
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
+
+  const showDetails = (id) => {
+    navigate("restaurant/" + id);
+  };
 
   const filterData = () => {
     let filterdRestaurants = [];
@@ -44,7 +51,15 @@ const Body = () => {
         <SkeletonTheme highlightColor="#d3d0d0">
           {filterdRestaurants.length ? (
             filterdRestaurants.map((card) => {
-              return <RestaurantCard key={card.data.id} {...card.data} />;
+              return (
+                <div
+                  className="card"
+                  key={card.data.id}
+                  onClick={() => showDetails(card.data.id)}
+                >
+                  <RestaurantCard {...card.data} />
+                </div>
+              );
             })
           ) : (
             <CardSkeleton count={8} />
