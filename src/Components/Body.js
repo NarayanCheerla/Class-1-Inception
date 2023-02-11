@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { SkeletonTheme } from "react-loading-skeleton";
 import CardSkeleton from "./CardSkeleton";
 import { useNavigate } from "react-router-dom";
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -32,19 +34,24 @@ const Body = () => {
     navigate("restaurant/" + id);
   };
 
-  const filterData = () => {
-    let filterdRestaurants = [];
-    filterdRestaurants = allRestaurants.filter((rest) => {
-      return rest.data.name.toLowerCase().includes(searchText.toLowerCase());
-    });
-    setFilteredRestaurants(filterdRestaurants);
-  };
+  const isOnline = useOnline();
+
+  if (!isOnline) {
+    return <h1>Offline !!, Please check your internet connection.</h1>;
+  }
 
   return (
     <>
       <div className="search-container">
         <input type="text" value={searchText} onChange={handleFilter} />
-        <button onClick={filterData}>Filter</button>
+        <button
+          onClick={() => {
+            const filterdRestaurants = filterData(searchText, allRestaurants);
+            setFilteredRestaurants(filterdRestaurants);
+          }}
+        >
+          Filter
+        </button>
       </div>
       <div className="cards-container">
         <SkeletonTheme highlightColor="#d3d0d0">

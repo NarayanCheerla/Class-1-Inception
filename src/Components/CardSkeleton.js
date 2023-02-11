@@ -1,5 +1,5 @@
 import Skeleton from "react-loading-skeleton";
-const CardSkeleton = ({ count }) => {
+const CardSkeleton = ({ count = 1 }) => {
   return (
     <>
       {Array(count)

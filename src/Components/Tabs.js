@@ -18,6 +18,9 @@ const Tabs = () => {
         <li>
           <NavLink to="/cart">Cart</NavLink>
         </li>
+        <li>
+          <NavLink to="/instamart">Instamart</NavLink>
+        </li>
         {logedIn ? (
           <li>
             <button onClick={() => setLogedIn(false)}>Logout</button>
