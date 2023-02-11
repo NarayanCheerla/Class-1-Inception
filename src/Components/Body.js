@@ -5,7 +5,6 @@ import CardSkeleton from "./CardSkeleton";
 import { useNavigate } from "react-router-dom";
 
 const Body = () => {
-  console.log("Body Rendered..");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterdRestaurants, setFilteredRestaurants] = useState([]);

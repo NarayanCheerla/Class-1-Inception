@@ -7,7 +7,6 @@ const RestaurantCard = ({
   costForTwoString,
   address,
 }) => {
-  console.log("Restaurant Card rendered.");
   return (
     <>
       <img src={IMG_URL + cloudinaryImageId} />

@@ -62,3 +62,9 @@ body {
 .menu {
   display: flex;
 }
+
+.wrapper {
+  border: 1px solid #e8e3e3;
+  margin: 5px;
+  padding: 5px;
+}
