@@ -5,7 +5,7 @@ import Body from "./Components/Body";
 import Footer from "./Components/Footer";
 import "react-loading-skeleton/dist/skeleton.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import About from "./Components/About";
+// import About from "./Components/About";
 import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import Restaurantmenu from "./Components/RestaurantMenu";
@@ -14,14 +14,15 @@ import CardSkeleton from "./Components/CardSkeleton";
 // import Instamart from "./Components/Instamart";
 
 const Instamart = lazy(() => import("./Components/Instamart"));
+const About = lazy(() => import("./Components/About"));
 
 const AppLayout = () => {
   return (
-    <div>
+    <>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 };
 
@@ -37,7 +38,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<CardSkeleton />}>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile",

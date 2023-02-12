@@ -6,20 +6,17 @@ const CardSkeleton = ({ count = 1 }) => {
         .fill("")
         .map((i, index) => {
           return (
-            <div className="card" key={index}>
-              <Skeleton height={160} width={200} />
+            <div className="w-56 p-2 m-2 shadow-lg" key={index}>
+              <Skeleton className="w-48 h-32" />
+              <h2>
+                <Skeleton />
+              </h2>
               <h3>
                 <Skeleton />
               </h3>
               <h4>
                 <Skeleton />
               </h4>
-              <h6>
-                <Skeleton />
-              </h6>
-              <h5>
-                <Skeleton />
-              </h5>
             </div>
           );
         })}

@@ -42,24 +42,30 @@ const Body = () => {
 
   return (
     <>
-      <div className="search-container">
-        <input type="text" value={searchText} onChange={handleFilter} />
+      <div className="search-container p-5 bg-pink-50 my-5">
+        <input
+          type="text"
+          className="bg-gray-200 focus:bg-green-50"
+          value={searchText}
+          onChange={handleFilter}
+        />
         <button
+          className="px-2 m-2 w-15 bg-purple-800 hover:bg-green-800 text-white rounded-lg"
           onClick={() => {
             const filterdRestaurants = filterData(searchText, allRestaurants);
             setFilteredRestaurants(filterdRestaurants);
           }}
         >
-          Filter
+          Search
         </button>
       </div>
-      <div className="cards-container">
-        <SkeletonTheme highlightColor="#d3d0d0">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <SkeletonTheme highlightColor="bg-pink-50">
           {filterdRestaurants.length ? (
             filterdRestaurants.map((card) => {
               return (
                 <div
-                  className="card"
+                  className="w-56 p-2 m-2 shadow-lg bg-pink-50"
                   key={card.data.id}
                   onClick={() => showDetails(card.data.id)}
                 >

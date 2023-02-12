@@ -3,11 +3,10 @@ import Tabs from "./Tabs";
 
 const Title = () => {
   return (
-    <div className="header">
+    <div className="flex justify-between bg-yellow-50 shadow sm:bg-blue-50 md:bg-pink-50">
       <Link to="/">
         <img
-          width="100"
-          height="100"
+          className="h-24 w-24 p-2"
           alt="logo"
           src="http://lh3.googleusercontent.com/Em7AHf7XBH_RtGfCBVXz9RH8SM_pHkj3xPP-yd3cRguY1_Jc8fmqgx6WxnvGVyPV5xs5gL3HCD0FCuv6Xo4CwoY6ak4"
         />
