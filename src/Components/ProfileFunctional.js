@@ -15,9 +15,9 @@ const ProfileFunctional = (props) => {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(() => {
-      console.log("Namasthe from Functioanl");
-    }, 1000);
+    // const interval = setInterval(() => {
+    //   console.log("Namasthe from Functioanl");
+    // }, 1000);
     return () => {
       clearInterval(interval);
       console.log("Functional Child : Component Will Unmount");

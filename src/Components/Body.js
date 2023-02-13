@@ -1,15 +1,17 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { SkeletonTheme } from "react-loading-skeleton";
 import CardSkeleton from "./CardSkeleton";
 import { useNavigate } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterdRestaurants, setFilteredRestaurants] = useState([]);
+  const { user, setUser } = useContext(UserContext);
 
   const handleFilter = (e) => {
     setSearchText(e.target.value);
@@ -45,7 +47,7 @@ const Body = () => {
       <div className="search-container p-5 bg-pink-50 my-5">
         <input
           type="text"
-          className="bg-gray-200 focus:bg-green-50"
+          className="bg-gray-100 focus:bg-green-50"
           value={searchText}
           onChange={handleFilter}
         />
@@ -58,8 +60,27 @@ const Body = () => {
         >
           Search
         </button>
+        <input
+          value={user.name}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              name: e.target.value,
+            })
+          }
+        ></input>
+        <input
+          type="email"
+          value={user.email}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              email: e.target.value,
+            })
+          }
+        />
       </div>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className="grid grid-cols-1 md:grid-cols-5">
         <SkeletonTheme highlightColor="bg-pink-50">
           {filterdRestaurants.length ? (
             filterdRestaurants.map((card) => {

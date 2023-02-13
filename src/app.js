@@ -1,27 +1,37 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Footer from "./Components/Footer";
 import "react-loading-skeleton/dist/skeleton.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-// import About from "./Components/About";
 import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import Restaurantmenu from "./Components/RestaurantMenu";
 import Profile from "./Components/ProfileClass";
 import CardSkeleton from "./Components/CardSkeleton";
-// import Instamart from "./Components/Instamart";
+import UserContext from "./utils/userContext";
 
 const Instamart = lazy(() => import("./Components/Instamart"));
 const About = lazy(() => import("./Components/About"));
 
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Akshay Saini",
+    email: "support@namastedev.com",
+  });
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </>
   );
 };
