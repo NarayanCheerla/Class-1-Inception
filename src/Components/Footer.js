@@ -1,6 +1,3 @@
-// import UserContext from "../utils/UserContext";
-// import { useContext } from "react";
-
 import { useContext } from "react";
 import UserContext from "../utils/userContext";
 
@@ -9,10 +6,9 @@ const Footer = () => {
   console.log("Footer user : ", user);
   console.log("Footer setUser: ", setUser);
   return (
-    <div>
-      <h1>Footer</h1>
+    <div className="m-5 p-2">
       <h2>
-        Developed by {user.name} @ {user.email}
+        This is developed by {user.name} @ {user.email}
       </h2>
     </div>
   );

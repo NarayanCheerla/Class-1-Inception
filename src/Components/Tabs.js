@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Tabs = () => {
   const [logedIn, setLogedIn] = useState(false);
-  const { user, setUser } = useContext(UserContext);
-  console.log(user);
-  console.log("user Name5 : " + user.name);
-  console.log("setUser : " + setUser);
+  const { user } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="list">
       <ul className="flex py-10">
@@ -21,7 +21,7 @@ const Tabs = () => {
           <NavLink to="/contact">Contact</NavLink>
         </li>
         <li className="px-2">
-          <NavLink to="/cart">Cart</NavLink>
+          <NavLink to="/cart">Cart - {cartItems?.length} items</NavLink>
         </li>
         <li className="px-2">
           <NavLink to="/instamart">Instamart</NavLink>

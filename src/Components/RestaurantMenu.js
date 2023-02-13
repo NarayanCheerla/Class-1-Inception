@@ -1,11 +1,19 @@
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import { IMG_URL } from "./constants";
 import CardSkeleton from "./CardSkeleton";
 import useRestaurant from "../utils/useRestaurant";
+import { addItem } from "../utils/cartSlice";
 
 const Restaurantmenu = () => {
   const { id } = useParams();
   const restaurant = useRestaurant(id);
+  const dispatch = useDispatch();
+
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   if (!restaurant) {
     return (
@@ -24,11 +32,20 @@ const Restaurantmenu = () => {
         <h3>{restaurant.avgRating}</h3>
         <h3>{restaurant.costForTwoMsg}</h3>
       </div>
+      <div></div>
       <div>
         <h1 className="font-bold text-xl m-5">Menu</h1>
-        <ul>
+        <ul className="px-5">
           {Object.values(restaurant?.menu?.items).map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              {item.name}
+              <button
+                className="p-1 bg-green-50"
+                onClick={() => addFoodItem(item)}
+              >
+                Add
+              </button>
+            </li>
           ))}
         </ul>
       </div>

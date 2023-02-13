@@ -11,6 +11,9 @@ import Restaurantmenu from "./Components/RestaurantMenu";
 import Profile from "./Components/ProfileClass";
 import CardSkeleton from "./Components/CardSkeleton";
 import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./Components/Cart";
 
 const Instamart = lazy(() => import("./Components/Instamart"));
 const About = lazy(() => import("./Components/About"));
@@ -21,7 +24,7 @@ const AppLayout = () => {
     email: "support@namastedev.com",
   });
   return (
-    <>
+    <Provider store={store}>
       <UserContext.Provider
         value={{
           user: user,
@@ -32,7 +35,7 @@ const AppLayout = () => {
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 
@@ -75,6 +78,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

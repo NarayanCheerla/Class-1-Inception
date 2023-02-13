@@ -19,7 +19,7 @@ const ProfileFunctional = (props) => {
     //   console.log("Namasthe from Functioanl");
     // }, 1000);
     return () => {
-      clearInterval(interval);
+      // clearInterval(interval);
       console.log("Functional Child : Component Will Unmount");
     };
   }, []);
