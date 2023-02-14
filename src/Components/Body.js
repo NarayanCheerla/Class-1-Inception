@@ -46,6 +46,7 @@ const Body = () => {
     <>
       <div className="search-container p-5 bg-pink-50 my-5">
         <input
+          data-testid="search-input"
           type="text"
           className="bg-gray-100 focus:bg-green-50"
           value={searchText}
@@ -53,6 +54,7 @@ const Body = () => {
         />
         <button
           className="px-2 m-2 w-15 bg-purple-800 hover:bg-green-800 text-white rounded-lg"
+          data-testid="search-btn"
           onClick={() => {
             const filterdRestaurants = filterData(searchText, allRestaurants);
             setFilteredRestaurants(filterdRestaurants);
@@ -86,6 +88,7 @@ const Body = () => {
             filterdRestaurants.map((card) => {
               return (
                 <div
+                  data-testid="res-list"
                   className="w-56 p-2 m-2 shadow-lg bg-pink-50"
                   key={card.data.id}
                   onClick={() => showDetails(card.data.id)}
@@ -95,7 +98,9 @@ const Body = () => {
               );
             })
           ) : (
-            <CardSkeleton count={8} />
+            <div data-testid="shimmer">
+              <CardSkeleton count={8} />
+            </div>
           )}
         </SkeletonTheme>
       </div>

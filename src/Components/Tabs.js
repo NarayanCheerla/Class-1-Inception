@@ -21,7 +21,9 @@ const Tabs = () => {
           <NavLink to="/contact">Contact</NavLink>
         </li>
         <li className="px-2">
-          <NavLink to="/cart">Cart - {cartItems?.length} items</NavLink>
+          <NavLink to="/cart" data-testid="cart">
+            Cart - {cartItems?.length} items
+          </NavLink>
         </li>
         <li className="px-2">
           <NavLink to="/instamart">Instamart</NavLink>
